@@ -26,7 +26,7 @@ export const configurePassport = () => {
         if (!user) {
           throw new Error("Invalid username or password");
         }
-        const validPassword = await bcrypt.compare(password, user.password);
+        const validPassword = bcrypt.compare(password, user.password);
         if (!validPassword) {
           throw new Error("Invalid username or password");
         }
