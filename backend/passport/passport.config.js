@@ -1,7 +1,7 @@
 import passport from "passport";
 import bcrypt from "bcryptjs";
 
-import User from "../models/user.mode.js";
+import User from "../models/user.model.js";
 import { GraphQLLocalStrategy } from "graphql-passport";
 
 export const configurePassport = () => {

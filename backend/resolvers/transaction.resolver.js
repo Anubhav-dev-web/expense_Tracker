@@ -1,4 +1,4 @@
-import Transaction from "../models/transaction.modal.js";
+import Transaction from "../models/transaction.model.js";
 const transactionResolver = {
   Query: {
     transactions: async (context) => {

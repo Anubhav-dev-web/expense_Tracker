@@ -1,10 +1,15 @@
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
+import { useMutation, useQuery } from "@apollo/client";
+
 import Cards from "../components/Cards";
 import TransactionForm from "../components/TransactionForm";
+import { LOGOUT } from "../graphql/mutations/user.mutation";
 
 import { MdLogout } from "react-icons/md";
+
+import toast from "react-hot-toast";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -33,11 +38,19 @@ const HomePage = () => {
     ],
   };
 
-  const handleLogout = () => {
-    console.log("Logging out...");
-  };
+  const [logout, { loading }] = useMutation(LOGOUT, {
+    refetchQueries: ["GetAuthenticatedUser"],
+  });
 
-  const loading = false;
+  const handleLogout = async () => {
+    try {
+      await logout();
+      //here I need to clear the local storage or cache of the user when logging out|using doucumentation
+    } catch (error) {
+      console.log("Error logging out:", error);
+      toast.error(error.message);
+    }
+  };
 
   return (
     <>
