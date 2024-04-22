@@ -114,5 +114,13 @@ Contributions are welcome! Feel free to fork the repository and submit pull requ
    git push origin feature/new-feature
    ```
 5. Submit a pull request.
+   
 
+GraphQL - Query language for APIs.
+React - JavaScript library for building user interfaces.
+MongoDB - NoSQL database.
+Tailwind CSS - Utility-first CSS framework.
+Vite - Next-generation frontend build tool.
+bcryptjs - Library for hashing passwords.
+Passport.js - Authentication middleware for Node.js.
 ---
