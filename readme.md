@@ -4,7 +4,8 @@
 
 Expense Tracker is a full-stack web application built with GraphQL, React, and MongoDB. It allows users to track their expenses and manage their finances effectively.
 
-![alt text](image.png)
+![preview ](https://github.com/Anubhav-dev-web/expense_Tracker/assets/80172002/33e7ca35-dc8f-499e-8a07-0c8cb81334c9)
+
 
 ## Features
 
