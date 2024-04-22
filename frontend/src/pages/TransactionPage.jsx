@@ -17,7 +17,7 @@ const TransactionPage = () => {
   });
   // console.log("Transaction error ", error);
   console.log("Transaction data ", data);
-
+  //refetch bug fixed .
   const [updateTransaction, { loading: updatingTransaction }] = useMutation(
     UPDATE_TRANSACTION,
     {
