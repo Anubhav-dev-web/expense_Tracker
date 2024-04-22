@@ -16,10 +16,14 @@ const TransactionPage = () => {
     },
   });
   // console.log("Transaction error ", error);
-  // console.log("Transaction data ", data);
+  console.log("Transaction data ", data);
 
-  const [updateTransaction, { loading: updatingTransaction }] =
-    useMutation(UPDATE_TRANSACTION);
+  const [updateTransaction, { loading: updatingTransaction }] = useMutation(
+    UPDATE_TRANSACTION,
+    {
+      refetchQueries: ["GetTransactions", "GetTransactionStatistics"],
+    }
+  );
 
   const [formData, setFormData] = useState({
     description: data?.transaction?.description || "",
@@ -171,7 +175,7 @@ const TransactionPage = () => {
               className="block uppercase text-white text-xs font-bold mb-2"
               htmlFor="amount"
             >
-              Amount($)
+              Amount(₹)
             </label>
             <input
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"

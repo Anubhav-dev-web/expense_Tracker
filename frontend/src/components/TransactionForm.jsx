@@ -3,7 +3,7 @@ import { CREATE_TRANSACTION } from "../graphql/mutations/transaction.mutation";
 import toast from "react-hot-toast";
 const TransactionForm = () => {
   const [createTransaction, { loading }] = useMutation(CREATE_TRANSACTION, {
-    refetchQueries: ["GetTransactions"],
+    refetchQueries: ["GetTransactions", "GetTransactionStatistics"],
   });
 
   const handleSubmit = async (e) => {
@@ -121,7 +121,7 @@ const TransactionForm = () => {
             className="block uppercase text-white text-xs font-bold mb-2"
             htmlFor="amount"
           >
-            Amount($)
+            Amount(₹)
           </label>
           <input
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"

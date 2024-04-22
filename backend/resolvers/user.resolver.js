@@ -20,8 +20,14 @@ const userResolver = {
         const hashedPassword = await bcrypt.hash(password, salt);
 
         // https://avatar-placeholder.iran.liara.run/
-        const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
-        const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
+
+        const boyProfilePic =
+          `https://avatar.iran.liara.run/public/boy?username=${username}` ||
+          "male.jpg";
+
+        const girlProfilePic =
+          `https://avatar.iran.liara.run/public/girl?username=${username}` ||
+          "female.jpg";
 
         const newUser = new User({
           username,
@@ -91,17 +97,17 @@ const userResolver = {
       }
     },
   },
-  // User: {
-  //   transactions: async (parent) => {
-  //     try {
-  //       const transactions = await Transaction.find({ userId: parent._id });
-  //       return transactions;
-  //     } catch (err) {
-  //       console.log("Error in user.transactions resolver: ", err);
-  //       throw new Error(err.message || "Internal server error");
-  //     }
-  //   },
-  // },
+  User: {
+    transactions: async (parent) => {
+      try {
+        const transactions = await Transaction.find({ userId: parent._id });
+        return transactions;
+      } catch (err) {
+        console.log("Error in user.transactions resolver: ", err);
+        throw new Error(err.message || "Internal server error");
+      }
+    },
+  },
 };
 
 export default userResolver;
